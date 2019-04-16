@@ -1,5 +1,6 @@
 # Node Boleto Sicredi
 
+[![Build Status](https://travis-ci.org/murilosandiego/node-sicredi.svg?branch=master)](https://travis-ci.org/murilosandiego/node-sicredi)
 
 > Uma biblioteca em Node.js para interagir com o WebService EcommResource, para gerenciamento de boletos, do Banco Sicredi.
 Esta tem como objetivo facilitar a criação, consulta, impressão etc de boletos do Banco Sicredi, trabalhando somente com Promise.
