@@ -1,4 +1,4 @@
-# Node Boleto Sicredi
+# Node Sicredi
 
 [![Build Status](https://travis-ci.org/murilosandiego/node-sicredi.svg?branch=master)](https://travis-ci.org/murilosandiego/node-sicredi)
 [![Coverage Status](https://coveralls.io/repos/github/murilosandiego/node-sicredi/badge.svg?branch=master)](https://coveralls.io/github/murilosandiego/node-sicredi?branch=master)
