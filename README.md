@@ -102,7 +102,7 @@ sicredi.auth('keyMaster')
 |`body`    |*objeto*
 
 
-**Examplo**
+**Exemplo**
 
 ```js
 import Sicredi from 'node-sicredi';
@@ -163,7 +163,7 @@ sicredi.create(body)
 |`query`   |*objeto*
 
 
-**Examplo**
+**Exemplo**
 
 ```js
 import Sicredi from 'node-sicredi';
@@ -196,7 +196,7 @@ sicredi.find(query)
 |`query`   |*objeto*
 
 
-**Examplo**
+**Exemplo**
 
 ```js
 import Sicredi from 'node-sicredi';
@@ -229,7 +229,7 @@ sicredi.find(query)
 |`body`   |*objeto*
 
 
-**Example**
+**Exemplo**
 
 ```js
 import Sicredi from 'node-sicredi';
@@ -262,7 +262,7 @@ sicredi.change(body)
 > O método “health” é responsável pela verificação da disponibilidade do sistema de Cobrança.
 
 
-**Examplo**
+**Exemplo**
 
 ```js
 import Sicredi from 'node-sicredi';
