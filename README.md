@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/murilosandiego/node-sicredi.svg?branch=master)](https://travis-ci.org/murilosandiego/node-sicredi)
 [![Coverage Status](https://coveralls.io/repos/github/murilosandiego/node-sicredi/badge.svg?branch=master)](https://coveralls.io/github/murilosandiego/node-sicredi?branch=master)
+[![npm version](https://badge.fury.io/js/node-sicredi.svg)](https://badge.fury.io/js/node-sicredi)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > Uma biblioteca em Node.js para interagir com o WebService EcommResource, para gerenciamento de boletos, do Banco Sicredi.
