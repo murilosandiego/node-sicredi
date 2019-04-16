@@ -1,0 +1,13 @@
+[
+  {
+    "seuNumero": "9999999999",
+    "nossoNumero": "99999999",
+    "nomePagador": "CLIENTE TESTE",
+    "valor": "500",
+    "valorLiquidado": "500",
+    "dataEmissao": "2018-12-13",
+    "dataVencimento": "2018-12-16",
+    "dataLiquidacao": "2018-12-13",
+    "situacao": "LIQUIDADO"
+  }
+]

@@ -1,0 +1,89 @@
+{
+  "name": "node-sicredi",
+  "version": "1.0.0",
+  "description": "Uma biblioteca JavaScript para interagir com o WebService EcommResource, para gerenciamento de boletos, do banco Sicredi",
+  "main": "lib/index.js",
+  "scripts": {
+    "clear": "rimraf lib",
+    "build": "npm run clear && babel --out-dir lib src",
+    "build:watch": "npm run build -- --watch",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "test": "mocha tests/**/*.spec.js --require @babel/register --require @babel/polyfill",
+    "test:tdd": "mocha tests/**/*.spec.js --require @babel/register --require @babel/polyfill --watch",
+    "test:coverage": "nyc npm test -- --exit",
+    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
+  },
+  "files": [
+    "lib"
+  ],
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**",
+      "./node_modules/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murilosandiego/node-sicredi.git"
+  },
+  "keywords": [
+    "boleto",
+    "sicredi",
+    "node",
+    "promise"
+  ],
+  "author": "Murilo Sandiego <contato@murilosandiego.com.br> (http://murilosandiego.com.br/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/murilosandiego/node-sicredi/issues"
+  },
+  "homepage": "https://github.com/murilosandiego/node-sicredi#readme",
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.2.2",
+    "@babel/node": "7.2.2",
+    "@babel/preset-env": "7.3.1",
+    "@babel/register": "7.0.0",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "chai-subset": "1.6.0",
+    "coveralls": "3.0.2",
+    "husky": "1.3.1",
+    "mocha": "5.2.0",
+    "nock": "10.0.6",
+    "nyc": "13.3.0",
+    "rimraf": "2.6.3",
+    "sinon": "7.2.3",
+    "sinon-chai": "3.3.0",
+    "standard": "12.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "lib/"
+    ],
+    "globals": [
+      "describe",
+      "context",
+      "it",
+      "beforeEach",
+      "afterEach"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test:coverage"
+    }
+  },
+  "dependencies": {
+    "request": "2.88.0",
+    "request-promise-native": "1.0.7"
+  }
+}

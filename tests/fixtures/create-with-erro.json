@@ -1,0 +1,5 @@
+{
+  "codigo": "E0010",
+  "mensagem": "Campo obrigatorio em branco.",
+  "parametro": "cpfCnpj"
+}
