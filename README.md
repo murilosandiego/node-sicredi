@@ -5,8 +5,8 @@
 [![npm version](https://badge.fury.io/js/node-sicredi.svg)](https://badge.fury.io/js/node-sicredi)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-> Uma biblioteca em Node.js para interagir com o WebService EcommResource, para gerenciamento de boletos, do Banco Sicredi.
-Esta tem como objetivo facilitar a criação, consulta, impressão etc de boletos do Banco Sicredi, trabalhando somente com Promise.
+> Uma biblioteca em Node.js para interagir com o WebService, EcommResource, do Banco Sicredi, para gerenciamento de boletos.
+Esta tem como objetivo facilitar a criação, consulta, impressão etc de boletos utilizando Promise.
 
 ### Instalação
 
@@ -70,7 +70,7 @@ sicredi
 
 ### sicredi.auth('keyMaster')
 
-> O método “auth” é responsável por criar uma chave criptografada, denominada chaveTransacao, baseada na chave master.
+> O método “auth” é responsável por criar uma chave criptografada, denominada chaveTransacao (chamamos de token), baseada na chave master.
 
 **Argumento**
 
@@ -87,7 +87,7 @@ import Sicredi from 'node-sicredi';
 sicredi = new Sicredi({})
 sicredi.auth('keyMaster')
   .then(data => {
-    //Chave de transação
+    //Chave de transação. Obs: Aqui chamamos de token
   })
 ```
 
