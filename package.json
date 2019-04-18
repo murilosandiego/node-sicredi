@@ -1,6 +1,6 @@
 {
   "name": "node-sicredi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Uma biblioteca JavaScript para interagir com o WebService EcommResource, para gerenciamento de boletos, do banco Sicredi",
   "main": "lib/index.js",
   "scripts": {
