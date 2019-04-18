@@ -7,6 +7,7 @@ import chaiSubset from 'chai-subset'
 import nock from 'nock'
 import path from 'path'
 import Sicredi from '../src/index'
+import SicrediError from '../src/erros/sicredi'
 
 chai.use(chaiAsPromised)
 chai.use(chaiSubset)
@@ -42,10 +43,16 @@ describe('auth method', () => {
           path.join(__dirname, '/fixtures/auth-with-token-registered.json')
         )
 
-      return expect(sicredi.auth('keyMaster')).to.eventually.deep.equal({
-        codigo: '0004',
-        mensagem: 'Existe um Token de Transação válido cadastrado!',
-        parametro: ''
+      return sicredi.auth('keyMaster').catch(error => {
+        return expect(error)
+          .to.be.an.instanceOf(SicrediError)
+          .and.containSubset({
+            error: {
+              codigo: '0004',
+              mensagem: 'Existe um Token de Transação válido cadastrado!',
+              parametro: ''
+            }
+          })
       })
     })
     it('should return erro with invalid token', async () => {
@@ -58,10 +65,16 @@ describe('auth method', () => {
           path.join(__dirname, '/fixtures/auth-with-invalid-token.json')
         )
 
-      return expect(sicredi.auth('keyMaster')).to.eventually.deep.equal({
-        codigo: 'E0011',
-        mensagem: 'Tamanho de campo invalido.',
-        parametro: 'token'
+      return sicredi.auth('invalidToken').catch(error => {
+        return expect(error)
+          .to.be.an.instanceOf(SicrediError)
+          .and.containSubset({
+            error: {
+              codigo: 'E0011',
+              mensagem: 'Tamanho de campo invalido.',
+              parametro: 'token'
+            }
+          })
       })
     })
   })

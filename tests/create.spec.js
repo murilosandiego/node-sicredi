@@ -7,6 +7,7 @@ import chaiSubset from 'chai-subset'
 import nock from 'nock'
 import path from 'path'
 import Sicredi from '../src/index'
+import SicrediError from '../src/erros/sicredi'
 
 chai.use(chaiAsPromised)
 chai.use(chaiSubset)
@@ -83,10 +84,16 @@ describe('create method', () => {
           path.join(__dirname, '/fixtures/create-with-erro.json')
         )
 
-      return expect(sicredi.create(body)).to.eventually.deep.equal({
-        codigo: 'E0010',
-        mensagem: 'Campo obrigatorio em branco.',
-        parametro: 'cpfCnpj'
+      return sicredi.create(body).catch(error => {
+        return expect(error)
+          .to.be.an.instanceOf(SicrediError)
+          .and.containSubset({
+            error: {
+              codigo: 'E0010',
+              mensagem: 'Campo obrigatorio em branco.',
+              parametro: 'cpfCnpj'
+            }
+          })
       })
     })
   })

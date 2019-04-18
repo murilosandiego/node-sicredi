@@ -1,6 +1,7 @@
 'use strict'
 
 import rp from 'request-promise-native'
+import SicrediError from './erros/sicredi'
 import {
   API_URL,
   AUTH_PATH,
@@ -32,7 +33,9 @@ class Sicredi {
 
     return rp(optionsRequest)
       .then(response => response)
-      .catch(error => error.error)
+      .catch(error => {
+        throw new SicrediError(error.error)
+      })
   }
 
   auth (keyMaster) {
