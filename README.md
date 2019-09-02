@@ -204,7 +204,7 @@ const query = {
   nossoNumero: 99999999,
 };
 
-sicredi.find(query).then(data => {
+sicredi.print(query).then(data => {
   // Boleto
 });
 ```
