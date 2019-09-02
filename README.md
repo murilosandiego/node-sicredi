@@ -5,8 +5,8 @@
 [![npm version](https://badge.fury.io/js/node-sicredi.svg)](https://badge.fury.io/js/node-sicredi)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-> Uma biblioteca em Node.js para interagir com o WebService, EcommResource, do Banco Sicredi, para gerenciamento de boletos.
-Esta tem como objetivo facilitar a criação, consulta, impressão etc de boletos utilizando Promise.
+> Uma biblioteca em Node.js para interagir com o WebService, [EcommResource](docs/EcommResource.pdf), do Banco Sicredi, para gerenciamento de boletos.
+> Esta tem como objetivo facilitar a criação, consulta, impressão etc de boletos utilizando Promise.
 
 ### Instalação
 
@@ -25,21 +25,20 @@ const sicredi = new Sicredi({
   token: 'SEU_TOKEN',
   agency: 'AGENCIA',
   assignor: 'CEDENTE',
-  station: 'POSTO'
-})
+  station: 'POSTO',
+});
 
 // Utilizando um método
 sicredi
   .find({
     dataInicio: '10/10/2018',
     dataFim: '31/12/2018',
-    tipoData: 'DATA_EMISSAO'
+    tipoData: 'DATA_EMISSAO',
   })
   .then(data => {
-    console.log(data)
+    console.log(data);
   })
-  .catch(err => console.log(err))
-
+  .catch(err => console.log(err));
 ```
 
 ### CommonJS
@@ -51,19 +50,19 @@ const sicredi = new Sicredi({
   token: 'SEU_TOKEN',
   agency: 'AGENCIA',
   assignor: 'CEDENTE',
-  station: 'POSTO'
-})
+  station: 'POSTO',
+});
 
 sicredi
   .find({
     dataInicio: '10/10/2018',
     dataFim: '31/12/2018',
-    tipoData: 'DATA_EMISSAO'
+    tipoData: 'DATA_EMISSAO',
   })
   .then(data => {
-    console.log(data)
+    console.log(data);
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
 ```
 
 ## Métodos
@@ -74,21 +73,19 @@ sicredi
 
 **Argumento**
 
-| Argument | Type
-|----------|---------
-|`keyMaster`|*string*
-
+| Argument    | Type     |
+| ----------- | -------- |
+| `keyMaster` | _string_ |
 
 **Exemplo**
 
 ```js
 import Sicredi from 'node-sicredi';
 
-sicredi = new Sicredi({})
-sicredi.auth('keyMaster')
-  .then(data => {
-    //Chave de transação. Obs: Aqui chamamos de token
-  })
+sicredi = new Sicredi({});
+sicredi.auth('keyMaster').then(data => {
+  //Chave de transação. Obs: Aqui chamamos de token
+});
 ```
 
 ### sicredi.create(body)
@@ -97,10 +94,9 @@ sicredi.auth('keyMaster')
 
 **Argumento**
 
-| Argument | Type
-|----------|---------
-|`body`    |*objeto*
-
+| Argument | Type     |
+| -------- | -------- |
+| `body`   | _objeto_ |
 
 **Exemplo**
 
@@ -111,8 +107,8 @@ const sicredi = new Sicredi({
   token: 'SEU_TOKEN',
   agency: 'AGENCIA',
   assignor: 'CEDENTE',
-  station: 'POSTO'
-})
+  station: 'POSTO',
+});
 
 const body = {
   nossoNumero: '',
@@ -143,13 +139,12 @@ const body = {
   descontoAntecipado: null,
   informativo: 'teste1',
   mensagem: 'teste',
-  codigoMensagem: ''
-}
+  codigoMensagem: '',
+};
 
-sicredi.create(body)
-  .then(data => {
-    // Boleto
-  })
+sicredi.create(body).then(data => {
+  // Boleto
+});
 ```
 
 ### sicredi.find(query)
@@ -158,10 +153,9 @@ sicredi.create(body)
 
 **Argumento**
 
-| Argument | Type
-|----------|---------
-|`query`   |*objeto*
-
+| Argument | Type     |
+| -------- | -------- |
+| `query`  | _objeto_ |
 
 **Exemplo**
 
@@ -172,17 +166,16 @@ const sicredi = new Sicredi({
   token: 'SEU_TOKEN',
   agency: 'AGENCIA',
   assignor: 'CEDENTE',
-  station: 'POSTO'
-})
+  station: 'POSTO',
+});
 
 const query = {
-  nossoNumero: 99999999
-}
+  nossoNumero: 99999999,
+};
 
-sicredi.find(query)
-  .then(data => {
-    // Array Boleto(s)
-  })
+sicredi.find(query).then(data => {
+  // Array Boleto(s)
+});
 ```
 
 ### sicredi.print(query)
@@ -191,10 +184,9 @@ sicredi.find(query)
 
 **Argumento**
 
-| Argument | Type
-|----------|---------
-|`query`   |*objeto*
-
+| Argument | Type     |
+| -------- | -------- |
+| `query`  | _objeto_ |
 
 **Exemplo**
 
@@ -205,17 +197,16 @@ const sicredi = new Sicredi({
   token: 'SEU_TOKEN',
   agency: 'AGENCIA',
   assignor: 'CEDENTE',
-  station: 'POSTO'
-})
+  station: 'POSTO',
+});
 
 const query = {
-  nossoNumero: 99999999
-}
+  nossoNumero: 99999999,
+};
 
-sicredi.find(query)
-  .then(data => {
-    // Boleto
-  })
+sicredi.find(query).then(data => {
+  // Boleto
+});
 ```
 
 ### sicredi.change(body)
@@ -224,10 +215,9 @@ sicredi.find(query)
 
 **Arguments**
 
-| Argument | Type
-|----------|---------
-|`body`   |*objeto*
-
+| Argument | Type     |
+| -------- | -------- |
+| `body`   | _objeto_ |
 
 **Exemplo**
 
@@ -238,52 +228,48 @@ const sicredi = new Sicredi({
   token: 'SEU_TOKEN',
   agency: 'AGENCIA',
   assignor: 'CEDENTE',
-  station: 'POSTO'
-})
+  station: 'POSTO',
+});
 
 const body = {
-      agencia: '1234',
-      posto: '99',
-      cedente: '12345',
-      nossoNumero: '999999999',
-      seuNumero: '9999999999',
-      instrucaoComando: 'ALTERACAO_SEU_NUMERO',
-      tipoVencimento: 'VISTA'
-    }
+  agencia: '1234',
+  posto: '99',
+  cedente: '12345',
+  nossoNumero: '999999999',
+  seuNumero: '9999999999',
+  instrucaoComando: 'ALTERACAO_SEU_NUMERO',
+  tipoVencimento: 'VISTA',
+};
 
-sicredi.change(body)
-  .then(data => {
-    //Resposta
-  })
+sicredi.change(body).then(data => {
+  //Resposta
+});
 ```
 
 ### sicredi.health()
 
 > O método “health” é responsável pela verificação da disponibilidade do sistema de Cobrança.
 
-
 **Exemplo**
 
 ```js
 import Sicredi from 'node-sicredi';
 
-const sicredi = new Sicredi({})
-sicredi.health()
-  .then(data => {
-    //Resposta
-  })
-
+const sicredi = new Sicredi({});
+sicredi.health().then(data => {
+  //Resposta
+});
 ```
 
 ## Contribuíndo
 
-Por favor, leia [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre o processo para enviar pull  request.
+Por favor, leia [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre o processo para enviar pull request.
 
 ## Autor
 
-| ![Murilo Sandiego](https://avatars3.githubusercontent.com/u/11686438?s=150&v=4)|
-|:---------------------:|
-|  [Murilo Sandiego](https://github.com/murilosandiego/)   |
+| ![Murilo Sandiego](https://avatars3.githubusercontent.com/u/11686438?s=150&v=4) |
+| :-----------------------------------------------------------------------------: |
+|              [Murilo Sandiego](https://github.com/murilosandiego/)              |
 
 Olhe também a lista de [contribuidores](https://github.com/murilosandiego/node-sicredi/contributors).
 
