@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/node-sicredi.svg)](https://badge.fury.io/js/node-sicredi)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-> Uma biblioteca em Node.js para interagir com o WebService, [EcommResource](docs/EcommResource.pdf), do Banco Sicredi, para gerenciamento de boletos.
+> Uma biblioteca em Node.js para interagir com o WebService, [EcommResource](docs/manualECommAPISicredi.pdf), do Banco Sicredi, para gerenciamento de boletos.
 > Esta tem como objetivo facilitar a criação, consulta, impressão etc de boletos utilizando Promise.
 
 ### Instalação
